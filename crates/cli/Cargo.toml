@@ -1,0 +1,10 @@
+[package]
+name = "cli"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pretty-print = { path = "../pretty-print" }
+command = { path = "../command" }
+chrono = "0.4"
+clap = { version = "4.5.19", features = ["derive"] }
