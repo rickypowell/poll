@@ -10,8 +10,10 @@ pub mod countdown {
     pub fn print_countdown(seconds: i64) {
         // countdown timer
         println!("Countdown timer: ");
+        let escape = "\x1b";
+        let erase_current_line = "[2K";
         for remaining in (0..=seconds).rev() {
-            print!("\r{} seconds remaining", remaining);
+            print!("\r{}{}{} seconds remaining", escape, erase_current_line, remaining);
             io::stdout().flush().unwrap();
             sleep(Duration::from_secs(1));
         }
