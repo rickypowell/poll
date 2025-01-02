@@ -11,7 +11,7 @@ pub mod countdown {
     ///
     /// This function takes a number of seconds to count down from and a callback function to call.
     /// This is a blocking call.
-    pub fn callback_countdown(seconds: i64, callback: fn(seconds: i64) -> ()) {
+    pub fn callback_countdown<F: Fn(i64)>(seconds: i64, callback: F) {
         for remaining in (0..=seconds).rev() {
             callback(remaining);
             sleep(Duration::from_secs(1));
