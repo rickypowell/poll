@@ -9,7 +9,8 @@ pub mod countdown {
 
     /// Countdown timer
     ///
-    /// This function takes a number of seconds to count down from and a callback function to call
+    /// This function takes a number of seconds to count down from and a callback function to call.
+    /// This is a blocking call.
     pub fn callback_countdown(seconds: i64, callback: fn(seconds: i64) -> ()) {
         for remaining in (0..=seconds).rev() {
             callback(remaining);
@@ -19,7 +20,13 @@ pub mod countdown {
 
     /// Countdown timer
     ///
-    /// This function takes a number of seconds to count down from and prints the countdown
+    /// This function takes a number of seconds to count down from and prints the countdown.
+    /// This is a blocking call.
+    ///
+    /// # Deprecated
+    ///
+    /// This function is deprecated. Use [`callback_countdown`] instead.
+    #[deprecated(since = "0.1.1", note = "Use callback_countdown instead")]
     pub fn print_countdown(seconds: i64) {
         // countdown timer
         println!("Countdown timer: ");
