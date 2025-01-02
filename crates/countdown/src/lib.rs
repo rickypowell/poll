@@ -7,6 +7,19 @@ pub mod countdown {
         println!("hello world from countdown");
     }
 
+    /// Countdown timer
+    ///
+    /// This function takes a number of seconds to count down from and a callback function to call
+    pub fn callback_countdown(seconds: i64, callback: fn(seconds: i64) -> ()) {
+        for remaining in (0..=seconds).rev() {
+            callback(remaining);
+            sleep(Duration::from_secs(1));
+        }
+    }
+
+    /// Countdown timer
+    ///
+    /// This function takes a number of seconds to count down from and prints the countdown
     pub fn print_countdown(seconds: i64) {
         // countdown timer
         println!("Countdown timer: ");
